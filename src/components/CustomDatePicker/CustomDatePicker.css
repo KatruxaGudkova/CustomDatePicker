@@ -1,0 +1,180 @@
+:root {
+  --datepicker-primary:#618A86;
+  --datepicker-bg:#B8CED3;
+  --datepicker-text:#ffffff;
+  --datepicker-hover:#e6f0ff;
+  --datepicker-selected:#253836;
+  --datepicker-shadow:#0f1615b3;
+  --datepicker-scrollbar:#253836;
+  --datepicker-outside:#bbbbbb;
+  --datepicker-focus-ring:#4e887e26;
+}
+
+/* обёртка */
+.datepicker-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 280px;
+}
+
+.datepicker-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--datepicker-text);
+}
+
+
+/* инпут */
+.datepicker-wrapper .react-datepicker-wrapper {
+  width: 100%;
+}
+
+.datepicker-wrapper .react-datepicker__input-container {
+  display: flex;
+  align-items: center;
+}
+
+.datepicker-wrapper .react-datepicker__input-container input::placeholder {
+  color: var(--datepicker-text);
+  opacity: 0.7;
+}
+
+.datepicker-wrapper .react-datepicker__input-container input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var( --datepicker-text);
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  cursor: pointer;
+  color: var(--datepicker-text);
+  background-color: var(--datepicker-primary);
+  transition: border-color 0.2s;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px 20px;
+}
+.datepicker-wrapper--date .react-datepicker__input-container input,
+.datepicker-wrapper--datetime .react-datepicker__input-container input {
+  background-image: url('/public/calendar.svg');
+}
+
+.datepicker-wrapper--time .react-datepicker__input-container input {
+  background-image: url('/public/clock.svg');
+
+}
+
+.datepicker-wrapper .react-datepicker__input-container input:focus {
+  border-color: var(--datepicker-primary);
+  box-shadow: 0 0 0 3px var(--datepicker-focus-ring);
+}
+
+
+/* календарь */
+.datepicker-wrapper .react-datepicker {
+  font-family: inherit;
+  background: var(--datepicker-primary);
+  border: 1px solid var(--datepicker-primary);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px var(--datepicker-shadow);
+}
+
+
+/* шапка */
+.datepicker-wrapper .react-datepicker__header {
+  background: var(--datepicker-primary);
+  border-bottom: none;
+  padding: 12px;
+}
+
+.datepicker-wrapper .react-datepicker__current-month,
+.datepicker-wrapper .react-datepicker-time__header {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.datepicker-wrapper .react-datepicker__current-month,
+.datepicker-wrapper .react-datepicker__day-name,
+.datepicker-wrapper .react-datepicker-time__header {
+  text-transform: capitalize;
+  color: var(--datepicker-text);
+}
+
+.datepicker-wrapper .react-datepicker__navigation-icon::before {
+  border-color: var(--datepicker-text);
+}
+
+
+/* ячейки с днями */
+.datepicker-wrapper .react-datepicker__day {
+  color: var(--datepicker-text);
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.datepicker-wrapper .react-datepicker__day:hover {
+  background: var(--datepicker-hover);
+  color: var(--datepicker-primary);
+}
+
+.datepicker-wrapper .react-datepicker__day--selected,
+.datepicker-wrapper .react-datepicker__day--keyboard-selected {
+  background: var(--datepicker-selected);
+  color: var(--datepicker-text);
+  font-weight: 600;
+}
+
+.datepicker-wrapper .react-datepicker__day--outside-month {
+  color: var(--datepicker-outside);
+}
+
+
+/* время */
+.datepicker-wrapper .react-datepicker__time-container,
+.datepicker-wrapper .react-datepicker__time,
+.datepicker-wrapper .react-datepicker__time-box {
+  background: var(--datepicker-primary) !important;
+}
+
+.datepicker-wrapper .react-datepicker__time-list-item {
+  color: var(--datepicker-text);
+}
+
+.datepicker-wrapper .react-datepicker__time-list-item:hover {
+  background: var(--datepicker-text) !important;
+  color: var(--datepicker-primary) !important;
+}
+
+.datepicker-wrapper .react-datepicker__time-list-item--selected {
+  background: var(--datepicker-selected) !important;
+  color: var(--datepicker-text) !important;
+}
+
+
+/* скроллбар */
+.datepicker-wrapper .react-datepicker__time-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.datepicker-wrapper .react-datepicker__time-list::-webkit-scrollbar-track {
+  background: var(--datepicker-primary);
+}
+
+.datepicker-wrapper .react-datepicker__time-list::-webkit-scrollbar-thumb {
+  background: var(--datepicker-scrollbar);
+  border-radius: 4px;
+}
+
+
+/* крестик отмены */
+.datepicker-wrapper .react-datepicker__close-icon {
+  right: 35px;
+}
+
+.datepicker-wrapper .react-datepicker__close-icon::after {
+  background: var(--datepicker-bg);
+  color: var(--datepicker-primary);
+}
