@@ -1,0 +1,104 @@
+.form-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-page__title {
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--datepicker-text);
+  font-family: 'Inter', sans-serif;
+}
+
+/* карточка формы */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--datepicker-primary);
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px var(--datepicker-shadow);
+}
+
+/* одно поле */
+.form__group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--datepicker-text);
+  font-family: 'Inter', sans-serif;
+}
+
+/* текстовые инпуты */
+.form__input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--datepicker-text);
+  border-radius: 8px;
+  font-size: 15px;
+  color: var(--datepicker-text);
+  background: var(--datepicker-primary);
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+}
+
+.form__input::placeholder {
+  color: var(--datepicker-text);
+  opacity: 0.7;
+}
+
+.form__input:focus {
+  border-color: var(--datepicker-bg);
+  box-shadow: 0 0 0 3px var(--datepicker-focus-ring);
+}
+
+/* кнопки */
+.form__actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.btn-primary {
+  padding: 10px 24px;
+  background: var(----datepicker-selected);
+  color: var(--datepicker-text);
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: var(--datepicker-btn);
+}
+
+.btn-secondary {
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--datepicker-text);
+  border: 1px solid var(--datepicker-text);
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background: var(--datepicker-focus-ring);
+}

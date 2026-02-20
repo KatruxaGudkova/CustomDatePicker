@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--datepicker-selected);
+  color: var(--datepicker-text);
   min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 8px;
+  padding: 16px 24px;
+  background: var(--datepicker-btn);
+  box-shadow: 0 2px 8px var(--datepicker-shadow);
 }
 
-.App-link {
-  color: #61dafb;
+.nav-link {
+  padding: 8px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--datepicker-bg);
+  font-size: 15px;
+  font-weight: 400;
+  transition: background 0.2s, color 0.2s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-link:hover {
+  background: var(--datepicker-focus-ring);
+  color: var(--datepicker-text);
+}
+
+.nav-link--active {
+  background: var(--datepicker-primary);
+  color: var(--datepicker-text);
+}
+
+.main {
+  padding: 40px 24px;
+  max-width: 600px;
+  margin: 0 auto;
 }
