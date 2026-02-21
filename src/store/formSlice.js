@@ -7,10 +7,7 @@ const initialState = {
   meetingTime: null,
 };
 
-const formSlice = createSlice({
-  name: 'form',
-  initialState,
-  reducers: {
+const reducers = {
     setName: (state, action) => {
       state.name = action.payload;
     },
@@ -24,7 +21,12 @@ const formSlice = createSlice({
       state.meetingTime = action.payload ? action.payload.toISOString() : null;
     },
     resetForm: () => initialState,
-  },
+  }
+
+const formSlice = createSlice({
+  name: 'form',
+  initialState,
+  reducers,
 });
 
 export const { setName, setEmail, setBirthDate, setMeetingTime, resetForm } = formSlice.actions;
