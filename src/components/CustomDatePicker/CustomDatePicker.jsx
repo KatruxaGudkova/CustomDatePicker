@@ -7,6 +7,16 @@ import './CustomDatePicker.css';
 
 registerLocale('ru', ru);
 
+const DAYS = {
+  понедельник: 'Пн',
+  вторник: 'Вт',
+  среда: 'Ср',
+  четверг: 'Чт',
+  пятница: 'Пт',
+  суббота: 'Сб',
+  воскресенье: 'Вс',
+};
+
 const MONTHS = [
   'Январь',
   'Февраль',
@@ -22,20 +32,34 @@ const MONTHS = [
   'Декабрь',
 ];
 
-const currentYear = new Date().getFullYear();
-const YEARS = Array.from({ length: currentYear - 1926 + 1 }, (_, i) => 1926 + i);
+const MODS = {
+  date: 'date',
+  time: 'time',
+  datetime: 'datetime',
+};
 
-function CustomDatePicker({ mode = 'date', value, onChange, label }) {
-  const isTimeMode = mode === 'time' || mode === 'datetime';
-  const [view, setView] = useState('calendar'); // 'calendar' | 'month' | 'year'
+const VIEW = {
+  calendar: 'calendar',
+  month: 'month',
+  year: 'year',
+};
+
+const START_YEAR = 1900;
+
+const currentYear = new Date().getFullYear();
+const YEARS = Array.from({ length: currentYear - START_YEAR + 1 }, (_, i) => START_YEAR + i);
+
+function CustomDatePicker({ mode = MODS.date, value, onChange, label }) {
+  const isTimeMode = mode === MODS.time || mode === MODS.datetime;
+  const [view, setView] = useState(VIEW.calendar);
 
   const getDateFormat = () => {
     switch (mode) {
-      case 'date':
+      case MODS.date:
         return 'dd.MM.yyyy';
-      case 'time':
+      case MODS.time:
         return 'HH:mm';
-      case 'datetime':
+      case MODS.datetime:
         return 'dd.MM.yyyy HH:mm';
       default:
         return '';
@@ -44,11 +68,11 @@ function CustomDatePicker({ mode = 'date', value, onChange, label }) {
 
   const getPlaceholder = () => {
     switch (mode) {
-      case 'date':
+      case MODS.date:
         return 'Выберите дату';
-      case 'time':
+      case MODS.time:
         return 'Выберите время';
-      case 'datetime':
+      case MODS.datetime:
         return 'Выберите дату и время';
       default:
         return '';
@@ -65,24 +89,13 @@ function CustomDatePicker({ mode = 'date', value, onChange, label }) {
         locale="ru"
         dateFormat={getDateFormat()}
         showTimeSelect={isTimeMode}
-        showTimeSelectOnly={mode === 'time'}
+        showTimeSelectOnly={mode === MODS.time}
         timeIntervals={15}
         timeCaption="Время"
         placeholderText={getPlaceholder()}
         isClearable
         autoComplete="off"
-        formatWeekDay={(day) => {
-          const days = {
-            понедельник: 'Пн',
-            вторник: 'Вт',
-            среда: 'Ср',
-            четверг: 'Чт',
-            пятница: 'Пт',
-            суббота: 'Сб',
-            воскресенье: 'Вс',
-          };
-          return days[day.toLowerCase()] || day;
-        }}
+        formatWeekDay={(day) => DAYS[day.toLowerCase()] || day}
         renderCustomHeader={({ date, changeMonth, changeYear, decreaseMonth, increaseMonth }) => (
           <div className="dp-header">
             <div className="dp-header__top">
@@ -99,14 +112,14 @@ function CustomDatePicker({ mode = 'date', value, onChange, label }) {
 
               <div className="dp-header__center">
                 <span
-                  className={`dp-header__month ${view === 'month' ? 'dp-header__month--active' : ''}`}
-                  onClick={() => setView(view === 'month' ? 'calendar' : 'month')}
+                  className={`dp-header__month ${view === VIEW.month ? 'dp-header__month--active' : ''}`}
+                  onClick={() => setView(view === VIEW.month ? VIEW.calendar : VIEW.month)}
                 >
                   {MONTHS[date.getMonth()]}
                 </span>
                 <span
-                  className={`dp-header__year ${view === 'year' ? 'dp-header__year--active' : ''}`}
-                  onClick={() => setView(view === 'year' ? 'calendar' : 'year')}
+                  className={`dp-header__year ${view === VIEW.year ? 'dp-header__year--active' : ''}`}
+                  onClick={() => setView(view === VIEW.year ? VIEW.calendar : VIEW.year)}
                 >
                   {date.getFullYear()}
                 </span>
@@ -124,7 +137,7 @@ function CustomDatePicker({ mode = 'date', value, onChange, label }) {
               </button>
             </div>
 
-            {view === 'month' && (
+            {view === VIEW.month && (
               <div className="dp-overlay">
                 {MONTHS.map((month, index) => (
                   <button
@@ -134,7 +147,7 @@ function CustomDatePicker({ mode = 'date', value, onChange, label }) {
                     onClick={(e) => {
                       e.preventDefault();
                       changeMonth(index);
-                      setView('calendar');
+                      setView(VIEW.calendar);
                     }}
                   >
                     {month}
@@ -143,7 +156,7 @@ function CustomDatePicker({ mode = 'date', value, onChange, label }) {
               </div>
             )}
 
-            {view === 'year' && (
+            {view === VIEW.year && (
               <div className="dp-overlay dp-overlay--year">
                 {YEARS.map((year) => (
                   <button
@@ -153,7 +166,7 @@ function CustomDatePicker({ mode = 'date', value, onChange, label }) {
                     onClick={(e) => {
                       e.preventDefault();
                       changeYear(year);
-                      setView('calendar');
+                      setView(VIEW.calendar);
                     }}
                   >
                     {year}
