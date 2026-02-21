@@ -11,15 +11,30 @@ function CustomDatePicker({ mode = 'date', value, onChange, label }) {
   const isTimeMode = mode === 'time' || mode === 'datetime';
 
   const getDateFormat = () => {
-    if (mode === 'date') return 'dd.MM.yyyy';
-    if (mode === 'time') return 'HH:mm';
-    if (mode === 'datetime') return 'dd.MM.yyyy HH:mm';
+    switch(mode) {
+      case 'date': 
+        return 'dd.MM.yyyy'
+      case 'time':
+        return 'HH:mm'
+      case 'datetime':
+        return 'dd.MM.yyyy HH:mm'
+      default:
+        return ''
+    }
+
   };
 
   const getPlaceholder = () => {
-    if (mode === 'date') return 'Выберите дату';
-    if (mode === 'time') return 'Выберите время';
-    if (mode === 'datetime') return 'Выберите дату и время';
+    switch(mode) {
+      case 'date': 
+        return 'Выберите дату'
+      case 'time':
+        return 'Выберите время'
+      case 'datetime':
+        return 'Выберите дату и время'
+      default:
+        return ''
+    }
   };
 
   return (
