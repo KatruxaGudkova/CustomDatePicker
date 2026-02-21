@@ -139,16 +139,19 @@
   color: var(--datepicker-text) !important;
 }
 
-/* скроллбар */
-.datepicker-wrapper .react-datepicker__time-list::-webkit-scrollbar {
+/* скроллбар время и год*/
+.datepicker-wrapper .react-datepicker__time-list::-webkit-scrollbar,
+.dp-overlay--year::-webkit-scrollbar {
   width: 4px;
 }
 
-.datepicker-wrapper .react-datepicker__time-list::-webkit-scrollbar-track {
+.datepicker-wrapper .react-datepicker__time-list::-webkit-scrollbar-track,
+.dp-overlay--year::-webkit-scrollbar-track {
   background: var(--datepicker-primary);
 }
 
-.datepicker-wrapper .react-datepicker__time-list::-webkit-scrollbar-thumb {
+.datepicker-wrapper .react-datepicker__time-list::-webkit-scrollbar-thumb,
+.dp-overlay--year::-webkit-scrollbar-thumb {
   background: var(--datepicker-scrollbar);
   border-radius: 4px;
 }
@@ -233,8 +236,9 @@
 .dp-overlay--year {
   grid-template-columns: repeat(4, 1fr);
   max-height: 160px;
-  overflow-y: auto;
+  overflow-y: scroll;
   scrollbar-width: thin;
+  scrollbar-color: var(--datepicker-scrollbar) var(--datepicker-primary);
 }
 
 .dp-overlay__item {
