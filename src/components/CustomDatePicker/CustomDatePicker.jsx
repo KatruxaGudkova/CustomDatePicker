@@ -1,8 +1,9 @@
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import './CustomDatePicker.css';
-import { registerLocale } from 'react-datepicker';
+import DatePicker, { registerLocale } from 'react-datepicker';
 import { ru } from 'date-fns/locale';
+import 'react-datepicker/dist/react-datepicker.css';
+
+import './CustomDatePicker.css';
+
 
 registerLocale('ru', ru);
 

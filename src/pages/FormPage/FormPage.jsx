@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 import { setName, setEmail, setBirthDate, setMeetingTime, resetForm } from '../../store/formSlice';
 import CustomDatePicker from '../../components/CustomDatePicker/CustomDatePicker';
+
 import './FormPage.css';
 
 function FormPage() {

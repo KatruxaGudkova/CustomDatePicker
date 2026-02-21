@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+
 import './DisplayPage.css';
 
 function formatDate(isoString, mode = 'date') {

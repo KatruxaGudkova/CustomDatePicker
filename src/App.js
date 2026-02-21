@@ -1,4 +1,5 @@
 import { Routes, Route, NavLink } from 'react-router-dom';
+
 import FormPage from './pages/FormPage/FormPage';
 import DisplayPage from './pages/DisplayPage/DisplayPage';
 import './App.css';
