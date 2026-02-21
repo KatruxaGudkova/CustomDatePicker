@@ -30,7 +30,9 @@ body {
   color: var(--datepicker-bg);
   font-size: 15px;
   font-weight: 400;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 
 .nav-link:hover {

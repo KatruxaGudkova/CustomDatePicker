@@ -1,13 +1,13 @@
 :root {
-  --datepicker-primary:#618A86;
-  --datepicker-bg:#B8CED3;
-  --datepicker-text:#ffffff;
-  --datepicker-hover:#e6f0ff;
-  --datepicker-selected:#253836;
-  --datepicker-shadow:#0f1615b3;
-  --datepicker-scrollbar:#253836;
-  --datepicker-outside:#bbbbbb;
-  --datepicker-focus-ring:#4e887e26;
+  --datepicker-primary: #618a86;
+  --datepicker-bg: #b8ced3;
+  --datepicker-text: #ffffff;
+  --datepicker-hover: #e6f0ff;
+  --datepicker-selected: #253836;
+  --datepicker-shadow: #0f1615b3;
+  --datepicker-scrollbar: #253836;
+  --datepicker-outside: #bbbbbb;
+  --datepicker-focus-ring: #4e887e26;
 }
 
 /* обёртка */
@@ -23,7 +23,6 @@
   font-weight: 500;
   color: var(--datepicker-text);
 }
-
 
 /* инпут */
 .datepicker-wrapper .react-datepicker-wrapper {
@@ -43,7 +42,7 @@
 .datepicker-wrapper .react-datepicker__input-container input {
   width: 100%;
   padding: 10px 14px;
-  border: 1px solid var( --datepicker-text);
+  border: 1px solid var(--datepicker-text);
   border-radius: 8px;
   font-size: 15px;
   outline: none;
@@ -62,14 +61,12 @@
 
 .datepicker-wrapper--time .react-datepicker__input-container input {
   background-image: url('/public/clock.svg');
-
 }
 
 .datepicker-wrapper .react-datepicker__input-container input:focus {
   border-color: var(--datepicker-bg);
   box-shadow: 0 0 0 3px var(--datepicker-focus-ring);
 }
-
 
 /* календарь */
 .datepicker-wrapper .react-datepicker {
@@ -80,7 +77,6 @@
   overflow: hidden;
   box-shadow: 0 8px 24px var(--datepicker-shadow);
 }
-
 
 /* шапка */
 .datepicker-wrapper .react-datepicker__header {
@@ -107,7 +103,6 @@
   border-color: var(--datepicker-text);
 }
 
-
 /* ячейки с днями */
 .datepicker-wrapper .react-datepicker__day {
   color: var(--datepicker-text);
@@ -131,7 +126,6 @@
   color: var(--datepicker-outside);
 }
 
-
 /* время */
 .datepicker-wrapper .react-datepicker__time-container,
 .datepicker-wrapper .react-datepicker__time,
@@ -153,7 +147,6 @@
   color: var(--datepicker-text) !important;
 }
 
-
 /* скроллбар */
 .datepicker-wrapper .react-datepicker__time-list::-webkit-scrollbar {
   width: 4px;
@@ -167,7 +160,6 @@
   background: var(--datepicker-scrollbar);
   border-radius: 4px;
 }
-
 
 /* крестик отмены */
 .datepicker-wrapper .react-datepicker__close-icon {

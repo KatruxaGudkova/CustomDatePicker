@@ -10,14 +10,14 @@ function CustomDatePicker({ mode = 'date', value, onChange, label }) {
   const isTimeMode = mode === 'time' || mode === 'datetime';
 
   const getDateFormat = () => {
-    if (mode === 'date')     return 'dd.MM.yyyy';
-    if (mode === 'time')     return 'HH:mm';
+    if (mode === 'date') return 'dd.MM.yyyy';
+    if (mode === 'time') return 'HH:mm';
     if (mode === 'datetime') return 'dd.MM.yyyy HH:mm';
   };
 
   const getPlaceholder = () => {
-    if (mode === 'date')     return 'Выберите дату';
-    if (mode === 'time')     return 'Выберите время';
+    if (mode === 'date') return 'Выберите дату';
+    if (mode === 'time') return 'Выберите время';
     if (mode === 'datetime') return 'Выберите дату и время';
   };
 
@@ -37,16 +37,15 @@ function CustomDatePicker({ mode = 'date', value, onChange, label }) {
         placeholderText={getPlaceholder()}
         isClearable
         autoComplete="off"
-
         formatWeekDay={(day) => {
           const days = {
-            'понедельник': 'Пн',
-            'вторник':     'Вт',
-            'среда':       'Ср',
-            'четверг':     'Чт',
-            'пятница':     'Пт',
-            'суббота':     'Сб',
-            'воскресенье': 'Вс',
+            понедельник: 'Пн',
+            вторник: 'Вт',
+            среда: 'Ср',
+            четверг: 'Чт',
+            пятница: 'Пт',
+            суббота: 'Сб',
+            воскресенье: 'Вс',
           };
           return days[day.toLowerCase()] || day;
         }}

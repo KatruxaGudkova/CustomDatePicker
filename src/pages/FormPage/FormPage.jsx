@@ -1,12 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import {
-  setName,
-  setEmail,
-  setBirthDate,
-  setMeetingTime,
-  resetForm,
-} from '../../store/formSlice';
+import { setName, setEmail, setBirthDate, setMeetingTime, resetForm } from '../../store/formSlice';
 import CustomDatePicker from '../../components/CustomDatePicker/CustomDatePicker';
 import './FormPage.css';
 
@@ -16,18 +10,24 @@ function FormPage() {
 
   const { name, email, birthDate, meetingTime } = useSelector((state) => state.form);
 
-  const birthDateObj  = birthDate   ? new Date(birthDate)   : null;
+  const birthDateObj = birthDate ? new Date(birthDate) : null;
   const meetingTimeObj = meetingTime ? new Date(meetingTime) : null;
 
   return (
     <div className="form-page">
       <h1 className="form-page__title">Заполните данные</h1>
 
-      <form className="form" onSubmit={(e) => { e.preventDefault(); navigate('/display'); }}>
-
-        {/* Имя */}
+      <form
+        className="form"
+        onSubmit={(e) => {
+          e.preventDefault();
+          navigate('/display');
+        }}
+      >
         <div className="form__group">
-          <label className="form__label" htmlFor="name">Имя</label>
+          <label className="form__label" htmlFor="name">
+            Имя
+          </label>
           <input
             className="form__input"
             id="name"
@@ -38,9 +38,10 @@ function FormPage() {
           />
         </div>
 
-        {/* Email */}
         <div className="form__group">
-          <label className="form__label" htmlFor="email">Email</label>
+          <label className="form__label" htmlFor="email">
+            Email
+          </label>
           <input
             className="form__input"
             id="email"
@@ -51,7 +52,6 @@ function FormPage() {
           />
         </div>
 
-        {/* Дата рождения */}
         <div className="form__group">
           <CustomDatePicker
             mode="date"
@@ -61,7 +61,6 @@ function FormPage() {
           />
         </div>
 
-        {/* Время встречи */}
         <div className="form__group">
           <CustomDatePicker
             mode="time"
@@ -71,20 +70,14 @@ function FormPage() {
           />
         </div>
 
-        {/* Кнопки */}
         <div className="form__actions">
           <button type="submit" className="btn-primary">
-            Посмотреть →
+            Посмотреть
           </button>
-          <button
-            type="button"
-            className="btn-secondary"
-            onClick={() => dispatch(resetForm())}
-          >
+          <button type="button" className="btn-secondary" onClick={() => dispatch(resetForm())}>
             Сбросить
           </button>
         </div>
-
       </form>
     </div>
   );

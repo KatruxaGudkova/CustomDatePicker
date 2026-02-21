@@ -1,12 +1,12 @@
 :root {
-  --datepicker-primary:#618A86;
-  --datepicker-bg:#B8CED3;
-  --datepicker-text:#ffffff;
-  --datepicker-hover:#e6f0ff;
-  --datepicker-selected:#253836;
-  --datepicker-shadow:#0f1615b3;
-  --datepicker-scrollbar:#253836;
-  --datepicker-outside:#bbbbbb;
-  --datepicker-focus-ring:#4e887e26;
+  --datepicker-primary: #618a86;
+  --datepicker-bg: #b8ced3;
+  --datepicker-text: #ffffff;
+  --datepicker-hover: #e6f0ff;
+  --datepicker-selected: #253836;
+  --datepicker-shadow: #0f1615b3;
+  --datepicker-scrollbar: #253836;
+  --datepicker-outside: #bbbbbb;
+  --datepicker-focus-ring: #4e887e26;
   --datepicker-btn: #1a2a28;
 }
