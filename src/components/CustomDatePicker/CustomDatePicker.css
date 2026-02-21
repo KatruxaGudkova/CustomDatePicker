@@ -85,18 +85,10 @@
   padding: 12px;
 }
 
-.datepicker-wrapper .react-datepicker__current-month,
-.datepicker-wrapper .react-datepicker-time__header {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.datepicker-wrapper .react-datepicker__current-month,
 .datepicker-wrapper .react-datepicker__day-name,
 .datepicker-wrapper .react-datepicker-time__header {
-  text-transform: capitalize;
   color: var(--datepicker-text);
+  text-transform: capitalize;
 }
 
 .datepicker-wrapper .react-datepicker__navigation-icon::before {
@@ -169,4 +161,100 @@
 .datepicker-wrapper .react-datepicker__close-icon::after {
   background: var(--datepicker-bg);
   color: var(--datepicker-primary);
+}
+
+/* кастомный хэдер */
+.dp-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dp-header__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.dp-header__center {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dp-header__month,
+.dp-header__year {
+  color: var(--datepicker-text);
+  font-size: 14px;
+  font-weight: 300;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  padding: 3px 8px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.dp-header__month:hover,
+.dp-header__year:hover {
+  background: var(--datepicker-text);
+  color: var(--datepicker-primary);
+}
+
+.dp-header__month--active,
+.dp-header__year--active {
+  background: var(--datepicker-selected);
+}
+
+.dp-header__nav {
+  background: transparent;
+  border: none;
+  color: var(--datepicker-text);
+  font-size: 22px;
+  cursor: pointer;
+  padding: 0 8px;
+  line-height: 1;
+  border-radius: 4px;
+  transition: background 0.15s;
+}
+
+.dp-header__nav:hover {
+  background: var(--datepicker-focus-ring);
+}
+
+/* оверлей месяцев и годов */
+.dp-overlay {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.dp-overlay--year {
+  grid-template-columns: repeat(4, 1fr);
+  max-height: 160px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.dp-overlay__item {
+  background: transparent;
+  border: none;
+  color: var(--datepicker-text);
+  font-size: 13px;
+  padding: 6px 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+  font-family: 'Inter', sans-serif;
+}
+
+.dp-overlay__item:hover {
+  background: var(--datepicker-text);
+  color: var(--datepicker-primary);
+}
+
+.dp-overlay__item--active {
+  background: var(--datepicker-selected);
+  font-weight: 600;
 }
