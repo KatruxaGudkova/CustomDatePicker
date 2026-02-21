@@ -1,0 +1,62 @@
+.display-page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.display-page__title {
+  font-size: 22px;
+  font-weight: 300;
+  color: var(--datepicker-text);
+  font-family: 'Inter', sans-serif;
+}
+
+.display__card {
+  background: var(--datepicker-primary);
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px var(--datepicker-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.display__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--datepicker-focus-ring);
+}
+
+.display__row:last-child {
+  border-bottom: none;
+}
+
+.display__label {
+  font-size: 13px;
+  color: var(--datepicker-bg);
+  font-weight: 500;
+  min-width: 140px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.display__value {
+  font-size: 16px;
+  color: var(--datepicker-text);
+  font-weight: 400;
+}
+
+.display__value--empty {
+  color: var(--datepicker-bg);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.display__hint {
+  font-size: 13px;
+  color: var(--datepicker-bg);
+  text-align: center;
+  opacity: 0.8;
+}
